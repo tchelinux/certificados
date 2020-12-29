@@ -1,0 +1,16 @@
+/.venv/
+/.jekyll-cache/
+/_site/
+
+/data/
+
+*.swp
+*.~
+*.lock
+
+Gemfile
+
+.DS_Store
+*.pyc
+*.pyo
+
