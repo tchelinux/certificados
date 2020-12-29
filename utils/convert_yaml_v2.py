@@ -95,6 +95,24 @@ def extract_validation(filename):
 
 
 if __name__ == "__main__":
+    import socket
+
+    if socket.getfqdn() != "jakku.local":
+        print(
+            """        \033[101;37;1m         ¡!  WARNING  !¡         \033[0m
+        \033[101;37;1m  For Authorized Personnel Only  \033[0m
+
+You should not run this if you are not \033[36mRafael Jeffman\033[0m.
+Contact him at \033[36mrafasgj@gmail.com\033[0m
+Or, even better for everyone, open an issue at
+
+    \033[36;1mhttps://github.com/tchelinux/certificados/issues\033[0m
+"""
+        )
+        sys.exit(1)
+
+    print(f"Processing \033[32;1m{len(sys.argv)-1}\033[0m files.")
+
     for filename in sys.argv[1:]:
         extract_certificates(filename)
     for filename in sys.argv[1:]:
