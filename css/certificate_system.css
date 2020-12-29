@@ -1,0 +1,244 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+body {
+    margin-bottom: 2em;
+    max-width: 65%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    max-width: 920px;
+}
+@media (max-width: 1350px) {
+    body {
+        max-width: 80%;
+    }
+}
+
+ul {
+    padding: 0;
+}
+
+a, a:hover, a:active, a:focus {
+    outline: 0;
+    text-decoration: none;
+    color: #d00;
+    border-bottom: thin dotted #f00;
+}
+
+header {
+    margin: 2em auto;
+    min-height: 100px;
+}
+
+h1.section {
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, rgb(192,0,0), rgb(255,0,0));
+    font-size: 64pt;
+    font-weight: bolder;
+}
+
+h1.page_title {
+    background-image: linear-gradient(to bottom, #000, #e8e8e8);
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    font-size: 36pt;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: lighter;
+}
+
+form {
+}
+.form-group {
+    margin: 1em auto;
+    display: inline-block;
+}
+.btn {
+    background-color: #e8e8e8;
+    border: #a8a8a8 thin solid;
+    border-radius: 4px;
+    color: #222;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 32px;
+    width: 10em;
+    vertical-align: middle;
+}
+label {
+    display: block;
+    font-size: 16pt;
+    margin-bottom: 5px;
+    font-weight: lighter;
+}
+input {
+    margin-top: 3px;
+    border: solid 1px #e8e8e8;
+    padding: 8px 8px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #787878;
+  opacity: 1; /* Firefox */
+}
+
+#resultado, #certificate_list {
+    padding: 1px;
+    border: #fff 1px solid;
+    border-radius: 10px;
+    float: right;
+    margin: -14em 1em 0 1em;
+    max-width: 350px;
+    min-width: 25em;
+    display: none;
+    background: linear-gradient(to bottom, rgb(192,0,0), rgb(255,0,0));
+}
+
+#resultado .container, #certificate_list .container {
+    border-radius: 9px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff;
+    max-width: 100%;
+}
+
+#certificate_list #name {
+    font-weight: bolder;
+    text-align: center;
+    margin: 0;
+}
+
+#list_events {
+    margin: 0;
+    margin-left: 1em;
+    padding: 15px 0;
+}
+#list_palestras li, #list_events li {
+    list-style: circle;
+    margin: 0px;
+    padding: 2px;
+}
+#list_events li {
+     margin-left: 1em;
+}
+#list_palestras li {
+    margin-left: 2em;
+    font-weight: bolder;
+}
+
+@media (max-width: 1005px) {
+    body {
+        padding-bottom: 2em;
+        max-width: 70%;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    form {
+        text-align: center;
+    }
+    #resultado, #certificate_list {
+        float: none;
+        margin: 1em auto 0 auto;
+    }
+    #resultado .container, #certificate_list .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    .btn-default {
+        display: block;
+        margin: 10px auto;
+    }
+    body {
+        padding-bottom: 2em;
+        width: 80%;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    form {
+        text-align: center;
+    }
+    #requisitar {
+        text-align: center;
+    }
+    #validar {
+        text-align: center;
+    }
+    #resultado, #certificate_list {
+        float: none;
+        margin: 0 auto;
+        max-width: 25em;
+    }
+
+    #resultado .container, #certificate_list .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        width: 90%;
+    }
+    form {
+        text-align: center;
+    }
+    #resultado, #certificate_list {
+        max-width: 95%;
+        min-width: 20em;
+        font-size: 80%;
+        margin: 0 auto;
+    }
+}
+
+.container p, .container li {
+    margin: 0;
+    font-size: small;
+}
+.container b {
+    font-size: medium;
+    font-family: monospace;
+}
+.container ul {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.container li, .container li a {
+    font-size: medium;
+    font-family: monospace;
+}
+
+#result-data p {
+    margin-bottom: 0.2em;
+}
+
+.label {
+    margin-top: .3em;
+    padding-top: .5em;
+    padding: 4px 10px;
+}
+.label-success {
+    background-color: #4CAF50;
+    color: #fff;
+}
+.label-danger {
+    background-color: rgb(245,20,20);
+    color: #fff;
+}
