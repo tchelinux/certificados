@@ -4,7 +4,7 @@ html, body {
 }
 
 * {
-    font-family: sans-serif;
+    font-family: Montserrat;
 }
 
 body {
@@ -37,7 +37,6 @@ header {
 }
 
 h1.section {
-    font-family: sans-serif;
     font-weight: bolder;
     color: transparent;
     -webkit-background-clip: text;
@@ -52,6 +51,7 @@ h1.section {
 }
 
 h1.page_title {
+    font-family: "Montserrat SemiBold";
     background-image: linear-gradient(to bottom, #000, #e8e8e8);
     color: transparent;
     -webkit-background-clip: text;
