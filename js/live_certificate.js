@@ -1,0 +1,3 @@
+class LiveCertificate extends BaseCertificate {
+
+}
