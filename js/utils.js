@@ -37,3 +37,21 @@ function getUrlVars() {
     );
     return vars;
 }
+
+/**
+ * Convert image data from an IMG element to Base64 using Canvas.
+ */
+ function getBase64Image(img_id) {
+     // Create an empty canvas element
+     img = document.getElementById(img_id)
+     var canvas = document.createElement("canvas")
+     canvas.width = img.width
+     canvas.height = img.height
+     // Copy the image contents to the canvas
+     var ctx = canvas.getContext("2d")
+     ctx.globalAlpha = 0.4
+     ctx.drawImage(img, 0, 0)
+     // Get the data-URL formatted image
+     var dataURL = canvas.toDataURL("image/png")
+     return dataURL
+ }
