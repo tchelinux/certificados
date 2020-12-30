@@ -24,6 +24,9 @@ async function digest(algo, str) {
     ).join('')
 }
 
+/**
+ * Retrieve a list of parameters passed in the URL, similar to a CGI script.
+ */
 function getUrlVars() {
     var vars = {};
     var remove_hash = window.location.href.replace(/#.*/gi, "")
