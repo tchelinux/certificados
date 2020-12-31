@@ -5,8 +5,16 @@ function display_validation_success(obj) {
     $('#result-error').css('display','none');
     $('#resultado #participante').text(obj.nome)
     $('#resultado #data').text(obj.data)
-    $('#resultado #cidade').text(obj.cidade)
-    $('#resultado #instituicao').text(obj.instituicao)
+    if (obj.cidade) {
+        $('#resultado #cidade').text(obj.cidade)
+    } else {
+        $('#resultado #cidade').text("Evento Remoto")
+    }
+    if (obj.cidade) {
+        $('#resultado #instituicao').text(obj.instituicao)
+    } else {
+        $('#resultado #instituicao').css('display','none');
+    }
     $('#resultado #horas').text(obj.horas)
     $('#resultado #fingerprint').text(obj.fingerprint)
     $('#resultado #horas_organizacao').text(obj.organizacao)
@@ -42,13 +50,12 @@ function display_validation_success(obj) {
     $('#validate_label').text("VÁLIDO")
 }
 
-function display_validation_error() {
+function display_validation_error(code) {
     $('#certificate_list').css('display','none')
     $('#resultado').css('display','block')
     $('#result-data').css('display','none')
     $('#result-error').css('display','block')
-    var msg = $('#validateform #event_info :selected').text()
-    $('#result-error #msg').text(msg);
+    $('#result-error #fingerprint').text(code)
     $('#validate_label').removeClass("label-success")
     $('#validate_label').addClass("label-danger")
     $('#validate_label').css('display','inline-block')
@@ -63,11 +70,11 @@ function validate_certificate(code) {
                display_validation_success(jQuery.parseJSON(data))
                document.location = "#resultado"
            } else {
-               display_validation_error()
+               display_validation_error(code, textStatus)
            }
         })
         .fail(function(data, textStatus, response) {
-            display_validation_error()
+            display_validation_error(code, textStatus)
         }
     )
 }
@@ -106,6 +113,7 @@ function display_retrieve_error(email, resp) {
 }
 
 function display_certificate_list(data) {
+    // user_certificates must be a global variable
     user_certificates = {}
     $('#certificate_data #name').text(data.name)
 
@@ -113,12 +121,16 @@ function display_certificate_list(data) {
          $('#certificate_data #events').css('display', 'block')
          $('#list_events').empty()
          for (c in data.certificates) {
-             var cert = data.certificates[c]
+             let cert = data.certificates[c]
              cert.name = data.name
              user_certificates[c] = cert
-             var date = getDateString(cert.event.date)
+             let date = getDateString(cert.event.date)
+             let location = `Tchelinux Live ${cert.event.date.split('-')[0]}`
+             if (cert.event.city) {
+                 location = cert.event.city
+             }
              $('#list_events').append(
-                $('<li></li>').append($("<a></a>", {href: `javascript: render_certificate(user_certificates["${cert.validation_code}"])`}).text(`${cert.event.city}, ${date}`))
+                $('<li></li>').append($("<a></a>", {href: `javascript: render_certificate(user_certificates["${cert.validation_code}"])`}).text(`${location}, ${date}`))
             )
          }
     } else {

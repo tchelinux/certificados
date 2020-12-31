@@ -242,3 +242,10 @@ input {
     background-color: rgb(245,20,20);
     color: #fff;
 }
+
+#fingerprint {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+}
