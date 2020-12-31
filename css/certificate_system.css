@@ -37,6 +37,7 @@ header {
 }
 
 h1.section {
+    font-family: "Montserrat Bold";
     font-weight: bolder;
     color: transparent;
     -webkit-background-clip: text;
