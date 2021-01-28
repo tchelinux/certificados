@@ -61,7 +61,7 @@ class OldCertificate extends BaseCertificate {
         const year = data.event.date.split("-")[0]
         this.doc.addPage()
             .font(this.SANS_REGULAR)
-            .image(getBase64Image('tux'), 250, -30, {fit: [790, 790], opacity: 0.3})
+            .image(getBase64Image('tux', 0.4), 250, -30, {fit: [790, 790]})
 
         let title = "Seminário de Software Livre"
         if (data.title) {
