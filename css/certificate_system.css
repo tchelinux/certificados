@@ -36,6 +36,14 @@ header {
     min-height: 100px;
 }
 
+footer {
+    width: 100%;
+    display; block;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2em;
+}
+
 h1.section {
     font-family: "Montserrat Bold";
     font-weight: bolder;
