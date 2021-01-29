@@ -73,6 +73,14 @@ h1.page_title {
     font-weight: lighter;
 }
 
+.form-centered {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+}
+
 form {
 }
 .form-group {
@@ -214,6 +222,12 @@ input {
         min-width: 20em;
         font-size: 80%;
         margin: 0 auto;
+    }
+    h1.section {
+        font-size: 48pt;
+    }
+    h1.page_title {
+        font-size: 20pt;
     }
 }
 

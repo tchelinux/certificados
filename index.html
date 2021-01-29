@@ -20,27 +20,29 @@
             <h1 class="page_title">Certificados Digitais</h1>
         </div>
     </header>
-    <section id="requisitar">
-        <div class="container">
-            <form method="GET" action="javascript:$("#requestform").submit()" id="requestform">
-                <div class="form-group">
-                    <label for="email">Requisição de Certificados</label>
-                    <input type="text" size="32" id="email" name="email" placeholder="E-Mail de inscrição"></input>
-                    <button style="vertical-align: bottom" type="submit" class="btn btn-default">Requisitar</button>
-                <div>
-            </form>
-        </div>
-    </section>
-    <section id="validar">
-        <div class="container">
-            <form method="GET" action="javascript:$("#validateform").submit()" id="validateform">
-                <div class="form-group">
-                    <label for="code">Verificação de Certificados</label>
-                    <input type="text" size="32" id="code" name="code" placeholder="Código de Verificação"></input>
-                    <button style="vertical-align: bottom" type="submit" class="btn btn-default">Verificar</button>
-                </div>
-            </form>
-        </div>
+    <section id="forms" class="form-centered">
+        <section id="requisitar">
+            <div class="container">
+                <form method="GET" action="javascript:$("#requestform").submit()" id="requestform">
+                    <div class="form-group">
+                        <label for="email">Requisição de Certificados</label>
+                        <input type="text" size="32" id="email" name="email" placeholder="E-Mail de inscrição"></input>
+                        <button style="vertical-align: bottom" type="submit" class="btn btn-default">Requisitar</button>
+                    <div>
+                </form>
+            </div>
+        </section>
+        <section id="validar">
+            <div class="container">
+                <form method="GET" action="javascript:$("#validateform").submit()" id="validateform">
+                    <div class="form-group">
+                        <label for="code">Verificação de Certificados</label>
+                        <input type="text" size="32" id="code" name="code" placeholder="Código de Verificação"></input>
+                        <button style="vertical-align: bottom" type="submit" class="btn btn-default">Verificar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </section>
 
     <section id="resultado">
@@ -112,9 +114,11 @@
         event.preventDefault()
         $('#certificate_list').css('display','none')
         $('#resultado').css('display','none')
-    let email = $('#email').val()
-        if (email)
+        let email = $('#email').val()
+        if (email) {
             retrieve_certificates(email)
+            $('#forms').removeClass("form-centered")
+        }
     })
 
     $("#validateform").submit(function(event) {
@@ -126,6 +130,7 @@
            (verification.length == 32 && verification.search(/[^0-9a-z]/) < 0))
         {
             validate_certificate(verification)
+            $('#forms').removeClass("form-centered")
         }
     })
 
