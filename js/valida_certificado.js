@@ -133,6 +133,9 @@ function display_certificate_list(data) {
                 $('<li></li>').append($("<a></a>", {href: `javascript: render_certificate(user_certificates["${cert.validation_code}"])`}).text(`${location}, ${date}`))
             )
          }
+         $('#list_events').append(
+            $('<li></li>').append($("<a></a>", {href: `javascript: render_certificate(user_certificates)`}).text("Todos Certificados"))
+        )
     } else {
          $('#resultado #palestras').css('display', 'none')
     }

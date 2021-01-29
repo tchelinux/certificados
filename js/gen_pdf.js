@@ -1,12 +1,20 @@
 function render_certificate(data) {
-    console.log(data)
-    if (data) {
-        date = data.event.date.split("-")
-        if (date < "2020") {
-            renderer = new OldCertificate()
-        } else {
-            renderer = new LiveCertificate()
+    let entries = data
+    if (data.validation_code) {
+        entries = Object()
+        entries[data.validation_code] = data
+    }
+    for (entry_hash in entries) {
+        const entry = entries[entry_hash]
+        console.log(entry)
+        if (entry) {
+            date = entry.event.date.split("-")
+            if (date < "2020") {
+                renderer = new OldCertificate()
+            } else {
+                renderer = new LiveCertificate()
+            }
+            renderer.render(entry)
         }
-        renderer.render(data)
     }
 }
