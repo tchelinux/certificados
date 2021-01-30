@@ -14,3 +14,5 @@ Gemfile
 *.pyc
 *.pyo
 
+# Certificate data.
+/certificates/
