@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- OpenGraph -->
-    <meta property="og:image" content="https://tchelinux.org/assets/tchelinux-facebook.png">
+    <meta property="og:image"
+          content="https://tchelinux.org/assets/tchelinux-facebook.png">
     <!-- Tchelinux Certificados Digitais Style -->
     <link rel="stylesheet" type="text/css" href="css/certificate_system.css">
     <link rel="stylesheet" href="fonts/montserrat.css">
@@ -23,22 +24,30 @@
     <section id="forms" class="form-centered">
         <section id="requisitar">
             <div class="container">
-                <form method="GET" action="javascript:$("#requestform").submit()" id="requestform">
+                <form method="GET"
+                  action="javascript:$("#requestform").submit()"
+                  id="requestform">
                     <div class="form-group">
                         <label for="email">Requisição de Certificados</label>
-                        <input type="text" size="32" id="email" name="email" placeholder="E-Mail de inscrição"></input>
-                        <button style="vertical-align: bottom" type="submit" class="btn btn-default">Requisitar</button>
+                        <input type="text" size="32" id="email" name="email"
+                          placeholder="E-Mail de inscrição"></input>
+                        <button style="vertical-align: bottom" type="submit"
+                          class="btn btn-default">Requisitar</button>
                     <div>
                 </form>
             </div>
         </section>
         <section id="validar">
             <div class="container">
-                <form method="GET" action="javascript:$("#validateform").submit()" id="validateform">
+                <form method="GET"
+                  action="javascript:$("#validateform").submit()"
+                  id="validateform">
                     <div class="form-group">
                         <label for="code">Verificação de Certificados</label>
-                        <input type="text" size="32" id="code" name="code" placeholder="Código de Verificação"></input>
-                        <button style="vertical-align: bottom" type="submit" class="btn btn-default">Verificar</button>
+                        <input type="text" size="32" id="code" name="code"
+                          placeholder="Código de Verificação"></input>
+                        <button style="vertical-align: bottom" type="submit"
+                          class="btn btn-default">Verificar</button>
                     </div>
                 </form>
             </div>
@@ -65,7 +74,8 @@
                 <p>Cidade: <b id="cidade"></b></p>
                 <p>Instituição:</p>
                 <p style="margin-left: 15px"><b id="instituicao"></b></p>
-                <p id="participacao">Horas de Participação: <b id="horas"></b></p>
+                <p id="participacao">Horas de Participação:
+                    <b id="horas"></b></p>
                 <p id="organizacao">Horas de Organização: <b id="horas_organizacao"></b></p>
                 <p id="palestras">Palestras:<ul id="list_palestras"></ul></p>
                 <p>Status:
@@ -81,7 +91,8 @@
     <section id="certificate_list" class="hexagon">
         <div class="container">
             <div id="certificate-error">
-                <p>Não foi possível obter lista de certificados para <b id="error-email"></b>.</p>
+                <p>Não foi possível obter lista de certificados para
+                    <b id="error-email"></b>.</p>
                 <p id="error-msg"></p>
             </div>
             <div id="certificate_data">
