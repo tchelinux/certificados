@@ -127,7 +127,11 @@
         $('#resultado').css('display','none')
         let verification  = $('#code').val()
         if (verification &&
-           (verification.length == 32 && verification.search(/[^0-9a-z]/) < 0))
+           (
+               (verification.length == 32 || verification.length == 64) &&
+               verification.search(/[^0-9a-z]/) < 0
+           )
+        )
         {
             validate_certificate(verification)
             $('#forms').removeClass("form-centered")
@@ -138,6 +142,7 @@
         let verification = getUrlVars()['verify']
         if (verification) {
             validate_certificate(verification)
+            $('#forms').removeClass("form-centered")
         }
     })
 
