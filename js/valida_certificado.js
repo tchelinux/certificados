@@ -3,36 +3,41 @@ function display_validation_success(obj) {
     $('#resultado').css('display','block');
     $('#result-data').css('display','block');
     $('#result-error').css('display','none');
-    $('#resultado #participante').text(obj.nome)
-    $('#resultado #data').text(obj.data)
-    if (obj.cidade) {
-        $('#resultado #cidade').text(obj.cidade)
+    $('#resultado #participante').text(obj.name)
+    $('#resultado #data').text(obj.date)
+    if (obj.city) {
+        $('#resultado #cidade').text(obj.city)
     } else {
         $('#resultado #cidade').text("Evento Remoto")
     }
-    if (obj.cidade) {
-        $('#resultado #instituicao').text(obj.instituicao)
+    if (obj.institution) {
+        $('#resultado #institution').css('display', 'block')
+        $('#resultado #instituicaon').css('display', 'block')
+        $('#resultado #instituicao').text(obj.institution)
     } else {
+        $('#resultado #institution').css('display', 'none')
         $('#resultado #instituicao').css('display','none');
     }
-    $('#resultado #horas').text(obj.horas)
-    $('#resultado #fingerprint').text(obj.fingerprint)
-    $('#resultado #horas_organizacao').text(obj.organizacao)
-    if (obj.horas > 0) {
-        $('#resultado #participacao').css('display', 'block')
-    } else {
-        $('#resultado #participacao').css('display', 'none')
+    if (obj.validation_code) {
+        $('#resultado #fingerprint').text(obj.validation_code)
     }
-    if (obj.organizacao > 0) {
+    if (obj.organization && obj.organization > 0) {
         $('#resultado #organizacao').css('display', 'block')
+        $('#resultado #horas_organizacao').text(obj.organization)
     } else {
         $('#resultado #organizacao').css('display', 'none')
     }
-    if (obj.palestras.length > 0) {
+    if (obj.hours && obj.hours > 0) {
+        $('#resultado #participacao').css('display', 'block')
+        $('#resultado #horas').text(obj.hours)
+    } else {
+        $('#resultado #participacao').css('display', 'none')
+    }
+    if (obj.presentations.length > 0) {
         $('#resultado #palestras').css('display', 'block')
         $('#list_palestras').empty()
-        for (p in obj.palestras) {
-            titulo = obj.palestras[p]
+        for (p in obj.presentations) {
+            titulo = obj.presentations[p]
             if (titulo.title) {
                 $('#list_palestras').append($('<li></li>').append($('<a></a>', {href: titulo.url}).text(titulo.title)))
             } else {
