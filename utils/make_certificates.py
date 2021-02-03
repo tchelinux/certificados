@@ -162,6 +162,13 @@ def create_certificates(event, certificate_data):
     return event, certificates
 
 
+def __ensure_cert_directory(hash):
+    directory = "%s/certificates/%s" % (__cert_dir, hash[0:2])
+    if not os.path.isdir(directory):
+        os.makedirs(directory)
+    return directory
+
+
 def save_certificates(event, certificates):
     """Save user certificate and verification files for the event."""
     event_key = __get_event_date_string(event)
@@ -175,11 +182,17 @@ def save_certificates(event, certificates):
     print(f"Certificates for `{event['type']}` event held on `{event_key}`.")
     counters = {"participation": 0, "presentations": 0, "organization": 0}
     for data in certificates.values():
+        # Save certificate data.
+        directory = __ensure_cert_directory(data["validation_code"])
+        filename = "%s/%s" % (directory, data["validation_code"])
+        with open(filename, "wt") as cert_file:
+            cert_data = base_event_data.copy()
+            cert_data.update(data)
+            json.dump(cert_data, cert_file, indent=4)
+        # Update user data.
         user_id = data["id"]
-        directory = "%s/certificates/%s" % (__cert_dir, user_id[0:2])
+        directory = __ensure_cert_directory(user_id)
         filename = "%s/%s" % (directory, user_id)
-        if not os.path.isdir(directory):
-            os.makedirs(directory)
         if os.path.isfile(filename):
             with open(filename, "rt") as cert_file:
                 user_data = json.load(cert_file)
