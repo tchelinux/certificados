@@ -68,24 +68,24 @@ def extract_validation(filename):
     for participante in event.get("participantes", []):
         fingerprint = participante["fingerprint"]
         certificate = {
-            "fingerprint": fingerprint,
-            "nome": participante["nome"],
-            "data": event["data"],
-            "cidade": event["cidade"],
-            "instituicao": event["instituicao"],
-            "horas": 0,
-            "organizacao": 0,
-            "palestras": [],
+            "validation_code": fingerprint,
+            "name": participante["nome"],
+            "date": event["data"],
+            "city": event["cidade"],
+            "institution": event["instituicao"],
+            "hours": 0,
+            "organization": 0,
+            "presentations": [],
         }
         if "roles" in participante:
             if "participante" in participante["roles"]:
-                certificate["horas"] = event["horas"]
+                certificate["hours"] = event["horas"]
             if "organizador" in participante["roles"]:
-                certificate["organizacao"] = event["horas_organizacao"]
+                certificate["organization"] = event["horas_organizacao"]
             if "palestrante" in participante["roles"]:
-                certificate["palestras"] = participante["palestras"]
+                certificate["presentations"] = participante["palestras"]
         else:
-            certificate["horas"] = event["horas"]
+            certificate["hours"] = event["horas"]
         # save certificate validation data
         dir = "%s/certificates/%s" % (__cert_dir, fingerprint[0:2])
         if not os.path.isdir(dir):
