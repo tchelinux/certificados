@@ -9,7 +9,7 @@ São imaginados três usuários para o sistema, o usuário que deseja obter um c
 Obtendo um Certificado
 ----------------------
 
-Para obter os certificados emitidos pelo sistema, o usuário deve acessar [https:/certificados.tchelinux.org], entrar com o e-mail utilizado para a sua inscrição nos eventos, e pressionar o botão `Requisitar`.
+Para obter os certificados emitidos pelo sistema, o usuário deve acessar [https://certificados.tchelinux.org], entrar com o e-mail utilizado para a sua inscrição nos eventos, e pressionar o botão `Requisitar`.
 
 Uma lista com todos os eventos que o usuário tem certificados disponíveis, ordenada do evento mais recente para o mais antigo, será exibida, e o usuário pode obter os certificados clicando no evento desejado.
 
@@ -105,7 +105,7 @@ O Sistema de Certificados Tchelinux está disponível sob a licença ISC. Veja o
 
 <!-- Referências -->
 [Grupo de Usuários de Software Livre Tchelinux]: https://tchelinux.org
-[https:/certificados.tchelinux.org]: https:/certificados.tchelinux.org
+[https://certificados.tchelinux.org]: https://certificados.tchelinux.org
 [repositório oficial]: https://github.com/tchelinux/certificados
 [github]: https://github.com
 [license]: LICENSE
