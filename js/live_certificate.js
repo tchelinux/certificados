@@ -31,7 +31,7 @@ class LiveCertificate extends BaseCertificate {
 
         this.new_page(this.doc, data, "Organizador",
             (the_doc) => {
-                the_doc.text(text, LEFT, 370, {align: "left"})
+                the_doc.text(text, this.LEFT, 380, {align: "left"})
             })
     }
 
@@ -47,7 +47,7 @@ class LiveCertificate extends BaseCertificate {
 
         this.new_page(data, "Participante",
             (the_doc) => {
-                the_doc.text(text, LEFT, 370, {align: "left"})
+                the_doc.text(text, this.LEFT, 380, {align: "left"})
             })
     }
 
@@ -66,7 +66,7 @@ class LiveCertificate extends BaseCertificate {
         this.new_page(data, "Palestrante",
             (the_doc) => {
                  the_doc.font(this.REGULAR).fontSize(this.TEXT_SIZE)
-                 .text("apresentou a palestra ", this.LEFT, 370,
+                 .text("apresentou a palestra ", this.LEFT, 380,
                        {align: "left", continued: true})
                  .font(this.BOLD)
                  .text(`${presentation.title}`, {continued: true})
@@ -80,7 +80,7 @@ class LiveCertificate extends BaseCertificate {
         const event = data.event
         let city = ""
         const url = "http://localhost:4000/" // use it for debug.
-        const year = data.event.date.split("-")[0]
+        const year = event.date.split("-")[0]
         const options = {
             size: 'A4',
             layout: 'landscape',
@@ -88,7 +88,7 @@ class LiveCertificate extends BaseCertificate {
         }
         this.doc.addPage(options)
             .font(this.REGULAR)
-            .image(getBase64Image('tchelinux', 1.0), 180, 60,
+            .image(getBase64Image('tchelinux', 1.0), 190, 40,
                    {fit: [650, 650]})
 
         let title = "Seminário de Software Livre"
@@ -105,10 +105,10 @@ class LiveCertificate extends BaseCertificate {
     }
 
     add_header(title, role, city, year) {
-        this.doc.fontSize(36)
+        this.doc.fontSize(28)
             .font(this.BOLD)
             .lineGap(10)
-            .text(`Certificado de ${role}`.toUpperCase(), 50, 140, {align: "left"})
+            .text(`Certificado de ${role}`.toUpperCase(), 70, 140, {align: "right"})
             .font(this.BLACK).fontSize   (36)
             .text(title, 80, 210, {align: 'center'})
             .font(this.REGULAR).fontSize(this.TEXT_SIZE)
@@ -117,7 +117,7 @@ class LiveCertificate extends BaseCertificate {
 
     add_certificate_name(name) {
         this.doc.fontSize(28)
-            .font(this.BOLD).text(`${name}`, 80, 310, {align: "center"})
+            .font(this.BOLD).text(`${name}`, 80, 320, {align: "center"})
             .font(this.REGULAR)
     }
 
