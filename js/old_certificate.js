@@ -15,7 +15,7 @@ class OldCertificate extends BaseCertificate {
 
         this.new_page(data, "Organizador",
             (the_doc) => {
-                the_doc.text(text, LEFT, 340, {align: "left"})
+                the_doc.text(text, this.LEFT, 340, {align: "left"})
             }
         )
     }
@@ -27,7 +27,7 @@ class OldCertificate extends BaseCertificate {
 
         this.new_page(data, "Participante",
             (the_doc) => {
-                the_doc.text(text, LEFT, 340, {align: "left"})
+                the_doc.text(text, this.LEFT, 340, {align: "left"})
             })
 
     }
