@@ -36,11 +36,16 @@ class LiveCertificate extends BaseCertificate {
     }
 
     add_participant_certificate(data) {
-        const hours = data.role.participant
+        const hours = data.role.participation
         let event = data.event
-        const text = `participou do evento com ${hours} horas de duração, realizado em ${getDateString(event.date)}, nas dependências da ${event.institution}.`
+        let text = `participou do evento com ${hours} horas de duração, realizado em ${getDateString(event.date)}`
+        if (event.institution) {
+            text += `, nas dependências da ${event.institution}.`
+        } else {
+            text += "."
+        }
 
-        this.new_page(this.doc, data, "Participante",
+        this.new_page(data, "Participante",
             (the_doc) => {
                 the_doc.text(text, LEFT, 370, {align: "left"})
             })
