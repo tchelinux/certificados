@@ -42,7 +42,7 @@ class BaseCertificate {
 
         if (data.role.organizer)
             this.add_organizer_certificate(data)
-        if (data.role.participant)
+        if (data.role.participation || data.role.participant)
             this.add_participant_certificate(data)
         data.presentations.forEach((presentation) => {
             this.add_presentation_certificate(data, presentation)
