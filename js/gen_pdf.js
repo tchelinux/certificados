@@ -8,7 +8,7 @@ function render_certificate(data) {
         const entry = entries[entry_hash]
         console.log(entry)
         if (entry) {
-            date = entry.event.date.split("-")
+            date = entry.event.date.split("-")[0]
             if (date < "2020") {
                 renderer = new OldCertificate()
             } else {
