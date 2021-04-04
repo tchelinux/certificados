@@ -159,7 +159,7 @@ input {
     font-weight: bolder;
 }
 
-@media (max-width: 1005px) {
+@media (max-width: 1105px) {
     body {
         padding-bottom: 2em;
         max-width: 70%;
