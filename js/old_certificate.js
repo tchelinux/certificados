@@ -7,7 +7,7 @@ class OldCertificate extends BaseCertificate {
     }
 
     add_organizer_certificate(data) {
-        const hours = data.role.organizer
+        const hours = data.role.organization || data.role.organizer
         let event = data.event
         const text = `colaborou, por ${hours} horas, na organização do ` +
             `evento realizado em ${getDateString(event.date)}, nas ` +
