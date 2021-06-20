@@ -40,11 +40,16 @@ class BaseCertificate {
 
         let stream = this.doc.pipe(blobStream());
 
-        if (data.role.organizer)
+        if (data.role.organization || data.role.organizer) {
+            console.log("Addinng organizer certificate.")
             this.add_organizer_certificate(data)
-        if (data.role.participation || data.role.participant)
+        }
+        if (data.role.participation || data.role.participant) {
+            console.log("Addinng partacipant certificate.")
             this.add_participant_certificate(data)
+        }
         data.presentations.forEach((presentation) => {
+            console.log("Addinng presentation certificate.")
             this.add_presentation_certificate(data, presentation)
         })
 
